@@ -1,30 +1,43 @@
 with Ada.Integer_Text_IO, Ada.Text_IO, Ada.Float_Text_IO; 
 use Ada.Integer_Text_IO;
-with Math; -- use Mat;
-procedure main is
-   A, B : Positive;
-   procedure perfect_numbers(A, B: Integer) is
-   begin
-      for i in A..B loop
-         if Math.is_perfect(i) then
-            Put(i);
-            Ada.Text_IO.New_Line; 
-         end if;
-      end loop;
-   end perfect_numbers;
-begin
-   Get( A );
-   Get( B );
---     Put( Math.gcd(A,B) );
---     Ada.Text_IO.New_Line; 
---     Put( Math.factorial(A) );
---     Put(Math.digit_sum(A));
---     if Math.is_9_divisor(A) then Ada.Text_IO.Put_Line("Ok"); else Ada.Text_IO.Put_Line("No"); end if;
-   perfect_numbers(1, 10000);
-   Ada.Float_Text_IO.Put(Math.sin(3.14159 / 2.0));
---     if Math.is_palin(A) then Ada.Text_IO.Put_Line("Palin"); else Ada.Text_IO.Put_Line("Nem Palin"); end if;
---     Put(Math.recur_power(A, B));
---     Ada.Text_IO.New_Line;
---     Put(Math.recur_fact(11));
+with Math;
+
+procedure main is    
+    begin
+        for i in 1..10000 loop
+            if Math.isPerfect(i) then
+                Put(i);
+                Ada.Text_IO.New_Line;
+            end if;
+        end loop;
+
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.New_Line;
+        Put(Math.digitSum(1234));
+
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.New_Line;
+        if Math.nineDivisor(1233) then
+            Ada.Text_IO.Put("1233 is divisible by 9");
+        end if;
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.New_Line;
+        if Math.isPalindrome(1221) then
+            Ada.Text_IO.Put("1221 is palindrome");
+        end if;
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.Put("Factorial of 5 is");
+        Put(Math.recursiveFactorial(5));
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.Put("2 to the power 8 is");
+        Put(Math.recursivePower(2,8));
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.New_Line;
+        Ada.Text_IO.Put("Sin of pi / 6 is");
+        Ada.Float_Text_IO.Put(Math.sin(3.141592/6.0));
+
+
 end main;
 
