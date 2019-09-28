@@ -35,9 +35,13 @@ procedure main is
         Put(Math.recursivePower(2,8));
         Ada.Text_IO.New_Line;
         Ada.Text_IO.New_Line;
+
         Ada.Text_IO.Put("Sin of pi / 6 is");
         Ada.Float_Text_IO.Put(Math.sin(3.141592/6.0));
-
+        Ada.Text_IO.New_Line;
+        Ada.Float_Text_IO.Put(Math.sin(3.141592));
+        Ada.Text_IO.New_Line;
+        Ada.Float_Text_IO.Put(Math.sin(3.141592/2.0));
 
 end main;
 

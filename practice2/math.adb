@@ -99,7 +99,7 @@ package body Math is
         current: Float := x;
         sign: Float := -1.0;
     begin
-        for i in 1..100000 loop
+        for i in 1..10000000 loop
             current := (current * x * x) / (Float(2 * i) * Float(2*i + 1));
             res := res + sign * current;
             sign := -sign;
