@@ -1,2 +1,2 @@
-# ELTE-ada
-Repo for ADA practices
+# ADA Course
+http://zsv.web.elte.hu/ada_files/
