@@ -15,11 +15,6 @@ procedure main is
     M: Matrix := ((1,1,1),(2,2,2),(3,3,3));
     N: Matrix := ((11, 22, 33, 44, 55), (1,8,3,8,8), (10,10,20,30,1),(0,0,0,0,0),(10,10,10,10,10));
 
-    11 22 33 44 55
-     1  8  3  8  8
-    10 10 20 30  1
-     0  0  0  0  0
-    10 10 10 10 10
 
     -- Add recursievely array
     function addRec(T: TArray) return Elem is
