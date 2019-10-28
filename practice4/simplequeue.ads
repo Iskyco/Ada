@@ -4,7 +4,7 @@ package SimpleQueue is
    type Queue(Max: Positive) is limited private;
 
    procedure Push(Q: in out Queue; E: in Elem);
-   procedure Pop(Q: in out Queue; E: out Elem);
+   function Pop(Q: in out Queue) return Elem;
    function IsEmpty(Q: Queue) return Boolean;
    function IsFull(Q: Queue) return Boolean;
    function Size(Q: Queue) return Natural;

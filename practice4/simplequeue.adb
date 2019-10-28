@@ -5,13 +5,15 @@ package body SimpleQueue is
       Q.Size := Q.Size + 1;
       Q.A(Q.Size) := E;
    end;
-   procedure Pop(Q: in out Queue; E: out Elem) is
+
+   function Pop(Q: in out Queue) return Elem is
+   E: Elem := Q.A(1);
    begin
-      E := Q.A(1);
       for I in 2..Q.Size loop
          Q.A(Integer'Pred(I)) := Q.A(I);
       end loop;
       Q.Size := Q.Size - 1;
+      return E;
    end;
    function IsEmpty(Q: Queue) return Boolean is
    begin
@@ -19,7 +21,7 @@ package body SimpleQueue is
    end;
    function IsFull(Q: Queue) return Boolean is
    begin
-      return Size(Q) = Q.Size;
+      return Size(Q) = Q.A'Length;
    end;
    function Size(Q: Queue) return Natural is
    begin
