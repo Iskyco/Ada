@@ -13,11 +13,11 @@ package SimpleBag is
     function IsEmpty(B: Bag) return Boolean;
 
 
-private
-    type TArray is array(Integer range <>) of Elem;
-    type Bag is record
-        Arr: TArray(1..100) := (others => 0);
-        Size: Natural := 0;
-    end record;
+    private
+        type TArray is array(Integer range <>) of Elem;
+        type Bag is record
+            Arr: TArray(1..100) := (others => 0);
+            Size: Natural := 0;
+        end record;
 
 end SimpleBag;

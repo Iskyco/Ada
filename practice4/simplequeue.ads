@@ -9,10 +9,11 @@ package SimpleQueue is
    function IsFull(Q: Queue) return Boolean;
    function Size(Q: Queue) return Natural;
 
-private
-   type TArray is array(Integer range <>) of Elem;
-   type Queue(Max: Positive) is record
-      A: TArray(1..Max);
-      Size: Natural := 0;
-   end record;
+   private
+      type TArray is array(Integer range <>) of Elem;
+      
+      type Queue(Max: Positive) is record
+         A: TArray(1..Max);
+         Size: Natural := 0;
+      end record;
 end SimpleQueue;

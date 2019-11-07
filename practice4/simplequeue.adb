@@ -2,8 +2,10 @@ package body SimpleQueue is
 
    procedure Push(Q: in out Queue; E: in Elem) is
    begin
-      Q.Size := Q.Size + 1;
-      Q.A(Q.Size) := E;
+      if Q.Size < Q.A'Length then
+         Q.Size := Q.Size + 1;
+         Q.A(Q.Size) := E;
+      end if;
    end;
 
    function Pop(Q: in out Queue) return Elem is
