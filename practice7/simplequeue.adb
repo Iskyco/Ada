@@ -1,12 +1,18 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+
 package body SimpleQueue is
 
    procedure Push(Q: in out Queue; E: in Elem) is
    begin
-      if Q.Size < Q.A'Length then
+      if IsFull(Q) then
+         raise Full_Queue;
+      else
          Q.Size := Q.Size + 1;
          Q.A(Q.Size) := E;
       end if;
    end;
+
 
    function Pop(Q: in out Queue) return Elem is
    E: Elem := Q.A(1);
@@ -16,7 +22,12 @@ package body SimpleQueue is
       end loop;
       Q.Size := Q.Size - 1;
       return E;
+   exception
+      when Constraint_Error => raise Empty_Queue;
    end;
+
+
+
    function IsEmpty(Q: Queue) return Boolean is
    begin
       return Size(Q) = 0;

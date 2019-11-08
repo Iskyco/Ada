@@ -28,10 +28,10 @@ procedure main is
 
     -- Bubble Sort
     procedure Swap ( A, B: in out Elem ) is
-        Tmp: Elem := A;
     begin
-        A := B;
-        B := Tmp;
+        A := A+B;
+        B := A-B; 
+        A := A-B; 
     end Swap;
 
     procedure bubble(T: in out TArray) is

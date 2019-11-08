@@ -1,7 +1,12 @@
+generic 
+      type Elem is private;
+
 package SimpleQueue is
-   subtype Elem is Integer;
+   
 
    type Queue(Max: Positive) is limited private;
+   
+   Empty_Queue, Full_Queue : Exception;
 
    procedure Push(Q: in out Queue; E: in Elem);
    function Pop(Q: in out Queue) return Elem;
