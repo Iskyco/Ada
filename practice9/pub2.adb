@@ -17,7 +17,7 @@ task type Fellow;
 Fellows: array (1..5) of Fellow;
 
 task type Student is
-	entry Name( s: in string := "");
+	entry Name( s: in string := "Cool Student");
 end Student;
 Students: array (1..3) of Student;
 type PStudent is access Student;
@@ -75,7 +75,7 @@ begin
         factor := factor+1;
       end loop;
     else
-      Put_Line("Going to sleep in the parc.");
+      Put_Line("Going to sleep in the park.");
       delay 5.0;
     end select;
   end loop;
@@ -90,7 +90,7 @@ task body Student is
 	type PString is access string;
 	n: PString;
 begin
-  accept Name( s: in string := "" ) do n := new string'(s); end;
+  accept Name( s: in string := "Cool Student" ) do n := new string'(s); end;
   select
     Door.Go_in;
     Barman.Order(Wine); Put_Line(n.all&" drinking wine"); delay 3.0;
@@ -103,14 +103,15 @@ end Student;
 
 
 begin
-  for i in Students'range loop
-    Students(i).Name;
-  end loop;
-  delay 2.0;
-  Stud := new Student;
-  Stud.Name("Mary");
-  delay 5.0;
-  Stud := new Student;
-  Stud.Name("John");
+  null;
+  --for i in Students'range loop
+    --Students(i).Name;
+  --end loop;
+  --delay 2.0;
+  --Stud := new Student;
+  --Stud.Name("Mary");
+  --delay 5.0;
+  --Stud := new Student;
+  --Stud.Name("John");
 end Pub2;
 
