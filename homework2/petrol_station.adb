@@ -5,6 +5,16 @@ with Ada.Numerics.Discrete_Random;
 procedure petrol_station is
     number_of_stations : Positive := 10;
     number_of_cars : Positive := 30;
+
+	protected Printer is	
+		procedure Print( s: in STRING := "" );
+	end Printer;
+	protected body Printer is
+        procedure Print( s: in STRING := "" ) is
+		begin
+			Put_Line(s);
+		end Print;
+	end Printer;
     
     type Driver is (Impatient, Patient, Empty_tank);
     WaitTime: constant array (1..3) of duration := (0.0,0.5,Duration'Last);
@@ -36,7 +46,7 @@ procedure petrol_station is
 
 		entry Fill when Available > 0 is
 		begin
-			Put_Line("We have a place for you!");
+			Printer.Print("We have a place for you!");
 		end Fill;
 	end Station;
 
@@ -49,14 +59,14 @@ procedure petrol_station is
 			select 
 				Station.Fill;
 				Is_Accepted := true;
-                Put_Line("Car with license" & License_Plate_Number.all'Image & " is filling the tank.");
+                Printer.Print("Car with license" & License_Plate_Number.all'Image & " is filling the tank.");
                 Station.Started_filling;
                 delay Filling_Time.all;
-                Put_Line("Car with license" & License_Plate_Number.all'Image & " finished and left.");
+                Printer.Print("Car with license" & License_Plate_Number.all'Image & " finished and left.");
                 Station.Finished_filling;
 			or
 				delay WaitTime(Driver_Type);
-				Put_Line("Car with license" & License_Plate_Number.all'Image & " waited for too long.");
+				Printer.Print("Car with license" & License_Plate_Number.all'Image & " waited for too long.");
                 exit;
 			end select;
 		end loop;
